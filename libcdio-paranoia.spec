@@ -1,7 +1,7 @@
 Summary:	CD paranoia CD-DA libraries from libcdio
 Name:		libcdio-paranoia
 Version:	0.90
-Release:	1
+Release:	2
 License:	LGPL v2.1 (library), GPL v2 (utility)
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/libcdio/%{name}-10.2+%{version}.tar.gz
@@ -60,6 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -78,8 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libcdio_cdda.so
 %attr(755,root,root) %{_libdir}/libcdio_paranoia.so
-%{_libdir}/libcdio_cdda.la
-%{_libdir}/libcdio_paranoia.la
 %{_includedir}/cdio/paranoia
 %{_pkgconfigdir}/libcdio_cdda.pc
 %{_pkgconfigdir}/libcdio_paranoia.pc
